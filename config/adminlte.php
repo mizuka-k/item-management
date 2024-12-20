@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => '商品管理',
+    'title' => 'KitchenCarHub',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>商品管理</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo' => '<b>KitchenCarHub</b>',
+    'logo_img' => 'vendor/adminlte/dist/img/logo.png',
+    'logo_img_class' => 'p-2',
     'logo_img_xl' => null,
-    'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => '商品管理',
+    'logo_img_xl_class' => '',
+    'logo_img_alt' => 'logo',
 
     /*
     |--------------------------------------------------------------------------
@@ -86,7 +86,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/img/logo.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -109,8 +109,8 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'path' => 'vendor/adminlte/dist/img/logo.png',
+            'alt' => 'logo',
             'effect' => 'animation__shake',
             'width' => 60,
             'height' => 60,
@@ -291,14 +291,54 @@ return [
 
     'menu' => [
         [
-            'text' => '商品一覧',
-            'url'  => 'items',
-            'icon' => 'fas fa-gamepad',
+            'type'         => 'navbar-search',
+            'text'         => 'search',
+            'topnav_right' => true,
+        ],
+        [
+            'type' => 'sidebar-menu-search',
+            'text' => 'search',
+        ],
+        [
+            'text' => '案件一覧',
+            'url'  => 'cases',
+            'icon' => 'fas fa-solid fa-store',
+        ],
+        [
+            'text' => '案件登録',
+            'url'  => 'cases',
+            'icon' => 'fas fa-solid fa-plus',
+        ],
+        [
+            'text' => 'キッチンカー一覧',
+            'url'  => 'items/index',
+            'icon' => 'fas fa-solid fa-truck',
+        ],
+        [
+            'text' => 'キッチンカー登録',
+            'url'  => 'items/add',
+            'icon' => 'fas fa-solid fa-truck',
+        ],
+        [
+            'text' => 'ユーザー一覧',
+            'url'  => 'users/index',
+            'icon' => 'fas fa-solid fa-users',
+        ],
+        ['header' => 'account_settings'],
+        [
+            'text' => 'profile',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'change_password',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-lock',
         ],
 
         // AdminLTEデフォルト
-        /*
-        // Navbar items:
+            /*
+            Navbar items:
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
