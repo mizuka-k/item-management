@@ -44,22 +44,21 @@
                         </div>
 
                     <!-- 画像 -->
-                        <div class="form-group">
+                        <div class="form-group text-center">
                             @if($item->image)
                             <div>画像ファイル：{{ $item->image }}</div>
                             <img src="{{ asset('storage/images/'.$item->image) }}" alt="キッチンカーの画像" class="mx-auto m-2" style="height:300px">
                             @endif
-                            <div class="form-group">
-                                <label for="image">画像(1MBまで)</label>
-                                <div>
-                                    <input type="file" name="image" id="image">
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">画像(1MBまで)</label>
+                            <div>
+                                <input type="file" name="image" id="image">
                             </div>
                         </div>
                     </div>
                     <div class="text-center mb-2">
-                        <a href="{{ route('item.index',$item) }}"><button type="button" class="btn btn-outline-secondary">キャンセル</button></a>
-                        <button type="submit" class="btn btn-primary">編集する</button>
+                        <button type="submit" class="btn btn-primary">編集</button>
                     </div>
                 </form>
                 <div class="text-center mb-4">

@@ -58,7 +58,7 @@ class ItemController extends Controller
                 $item->image =  $name;
             }
             $item->save();
-            return redirect('/items')->with('successMessage', '保存しました。');
+            return redirect('/index')->with('successMessage', '保存しました。');
         }
 
         return view('item.add');
@@ -67,27 +67,32 @@ class ItemController extends Controller
     /**
      *  キッチンカー情報詳細表示
      */
-    public function edit(Item $item) {
-        return view('item.edit', compact('item'));
+    public function show(Item $item) {
+        return view('item.show', compact('item'));
     }
 
     // キッチンカー情報編集処理
     public function update(Request $request, Item $item) {
-        $validated = $request->validate(([
-            'name' => 'required|max:100',
-            'detail' => 'max:500',
-            'image' => 'image|max:1024',
-        ]));
+        // POSTリクエストのとき
+        if ($request->isMethod('patch')) {
+            $validated = $request->validate(([
+                'name' => 'required|max:100',
+                'detail' => 'max:500',
+                'image' => 'image|max:1024',
+            ]));
 
-        if(request('image')) {
-            $original = $request->file('image')->getClientOriginalName();
-            $name = date('Ymd_His').'_'.$original;
-            request()->file('image')->move('storage/images',$name);
-            $item->image =  $name;
+            if(request('image')) {
+                $original = $request->file('image')->getClientOriginalName();
+                $name = date('Ymd_His').'_'.$original;
+                request()->file('image')->move('storage/images',$name);
+                $item->image =  $name;
+            }
+            $validated['user_id'] = Auth::user()->id;
+            $item->update($validated);
+            return redirect()->route('item.edit', $item)->with('successMessage', '更新しました。');
         }
-        $validated['user_id'] = Auth::user()->id;
-        $item->update($validated);
-        return redirect()->route('item.edit', $item)->with('successMessage', '更新しました。');
+        
+        return view('item.edit',compact('item'));
     }
 
     // キッチンカー削除

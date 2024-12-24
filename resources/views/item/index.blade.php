@@ -45,10 +45,17 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->detail }}</td>
-                                    <td>
+                                    <td style="width: 35px">
                                         <p>
-                                            <a href="{{ route('item.edit',$item) }}"><button type="button" class="btn btn-outline-info">詳細</button></a>
+                                            <a href="{{ route('item.show',$item) }}"><button type="button" class="btn btn-outline-info">詳細</button></a>
                                         </p>
+                                    </td>
+                                    <td style="width: 35px"> 
+                                        <form method="POST" action="{{ route('item.delete', $item->id) }}" >
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('本当に削除しますか？')">削除</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

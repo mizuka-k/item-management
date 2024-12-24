@@ -290,23 +290,23 @@ return [
     */
 
     'menu' => [
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
+        // [
+        //     'type'         => 'navbar-search',
+        //     'text'         => 'search',
+        //     'topnav_right' => true,
+        // ],
+        // [
+        //     'type' => 'sidebar-menu-search',
+        //     'text' => 'search',
+        // ],
         [
             'text' => '案件一覧',
-            'url'  => 'cases',
+            'url'  => 'locations/index',
             'icon' => 'fas fa-solid fa-store',
         ],
         [
             'text' => '案件登録',
-            'url'  => 'cases',
+            'url'  => 'locations/add',
             'icon' => 'fas fa-solid fa-plus',
         ],
         [
@@ -324,17 +324,17 @@ return [
             'url'  => 'users/index',
             'icon' => 'fas fa-solid fa-users',
         ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+        // ['header' => 'account_settings'],
+        // [
+        //     'text' => 'profile',
+        //     'url'  => 'profile/{id}',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'change_password',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
 
         // AdminLTEデフォルト
             /*
