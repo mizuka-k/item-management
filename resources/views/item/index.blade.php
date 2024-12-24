@@ -7,16 +7,17 @@
 @stop
 
 @section('content')
+@if(session('alertMessage'))
+    <div class="mt-4 alert alert-danger" role="alert">
+        {{ session('alertMessage')}}
+    </div>
+@elseif(session('successMessage'))
+    <div class="mt-4 alert alert-success" role="alert">
+        {{ session('successMessage' )}}
+    </div>
+@endif
     <div class="row">
-    @if(session('alertMessage'))
-        <div class="mt-4 alert alert-danger" role="alert">
-            {{ session('alertMessage')}}
-        </div>
-    @elseif(session('successMessage'))
-        <div class="mt-4 alert alert-success" role="alert">
-            {{ session('successMessage' )}}
-        </div>
-    @endif
+
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
@@ -44,7 +45,7 @@
                                 <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->detail }}</td>
+                                    <td>{{ Str::limit($item->detail,100,'...') }}</td>
                                     <td style="width: 35px">
                                         <p>
                                             <a href="{{ route('item.show',$item) }}"><button type="button" class="btn btn-outline-info">詳細</button></a>

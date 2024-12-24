@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Item;
+use App\Models\Location;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $items = Item::orderBy('updated_at','desc')->take(5)->get();
+        $locations = Location::orderBy('updated_at','desc')->take(5)->get();
+
+        return view('home',compact('items','locations'));
         return view('home');
     }
 }

@@ -64,7 +64,7 @@
                             <tr class="align-middle">
                                 <th class="text-secondary">詳細</th>
                                 <td>
-                                    <p class="m-0">{{ $location->detail }}</p>
+                                    <p class="m-0">{!! nl2br($item->detail) !!}</p>
                                 </td>
                             </tr>
                             <tr class="align-middle">

@@ -58,7 +58,7 @@ class ItemController extends Controller
                 $item->image =  $name;
             }
             $item->save();
-            return redirect('/index')->with('successMessage', '保存しました。');
+            return redirect('/items/index')->with('successMessage', '保存しました。');
         }
 
         return view('item.add');
@@ -91,7 +91,7 @@ class ItemController extends Controller
             $item->update($validated);
             return redirect()->route('item.edit', $item)->with('successMessage', '更新しました。');
         }
-        
+
         return view('item.edit',compact('item'));
     }
 

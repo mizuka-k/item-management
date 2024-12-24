@@ -54,7 +54,7 @@
                                             @endif
                                         </div>
                                     </td>
-                                    <td>{{ $location->address }}</td>
+                                    <td>{{ Str::limit($location->address,100,'...') }}</td>
                                     <td style="width: 35px">
                                         <a href="{{ route('location.show',$location) }}"><button type="button" class="btn btn-outline-info">詳細</button></a>
                                     </td>

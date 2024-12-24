@@ -300,12 +300,12 @@ return [
         //     'text' => 'search',
         // ],
         [
-            'text' => '案件一覧',
+            'text' => 'イベント一覧',
             'url'  => 'locations/index',
             'icon' => 'fas fa-solid fa-store',
         ],
         [
-            'text' => '案件登録',
+            'text' => 'イベント登録',
             'url'  => 'locations/add',
             'icon' => 'fas fa-solid fa-plus',
         ],
