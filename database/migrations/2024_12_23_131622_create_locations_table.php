@@ -22,7 +22,7 @@ return new class extends Migration
             $table->time('end_time');
             $table->string('address');
             $table->text('detail');
-            $table->text('image')->nullable();
+            $table->string('image')->default('location_default.jpg');
             $table->timestamps();
         });
     }

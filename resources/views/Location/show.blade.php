@@ -18,7 +18,7 @@
                         <tbody>
                             <div class="m-4">
                                 @if($location->image)
-                                <img src="{{ asset('storage/images/'.$location->image) }}" class="rounded mx-auto d-block" style="height:300px" alt="車両画像">
+                                <img src="{{ asset('storage/locations/'.($location->image??'location_default.jpg')) }}" class="rounded mx-auto d-block" style="height:300px" alt="車両画像">
                                 @endif
                             </div>
                             <tr class="align-middle">
@@ -64,7 +64,7 @@
                             <tr class="align-middle">
                                 <th class="text-secondary">詳細</th>
                                 <td>
-                                    <p class="m-0">{!! nl2br($item->detail) !!}</p>
+                                    <p class="m-0">{!! nl2br($location->detail) !!}</p>
                                 </td>
                             </tr>
                             <tr class="align-middle">

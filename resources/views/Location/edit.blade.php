@@ -54,11 +54,11 @@
                                 @endif
                                 <div class="mt-2">
                                     <div>
-                                        <input id="close" type="radio" class="form-check-input ms-2" name="status" value="0" {{ old('close', $location->status) == '0' ? 'checked' : '' }}>
+                                        <input id="close" type="radio" class="form-check-input ms-2" name="status" value="1" {{ old('close', $location->status) == '1' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="close">募集を締切る</label>
                                     </div>
                                     <div>
-                                        <input id="open" type="radio" class="form-check-input" name="status" value="1" {{ old('open', $location->status) == '1' ? 'checked' : '' }}>
+                                        <input id="open" type="radio" class="form-check-input" name="status" value="0" {{ old('open', $location->status) == '0' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="open">応募開始</label>
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@
                         <div class="form-group">
                             @if($location->image)
                             <div class="text-center">
-                                <img src="{{ asset('storage/images/'.$location->image) }}" alt="イベントイメージ" class="mx-auto m-2" style="height:300px">
+                                <img src="{{ asset('storage/locations/'.$location->image) }}" alt="イベントイメージ" class="mx-auto m-2" style="height:300px">
                             </div>
                             @endif
                             <div class="form-group">

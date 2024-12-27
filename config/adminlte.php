@@ -317,7 +317,7 @@ return [
         [
             'text' => 'キッチンカー登録',
             'url'  => 'items/add',
-            'icon' => 'fas fa-solid fa-truck',
+            'icon' => 'fas fa-solid fa-plus',
         ],
         [
             'text' => 'ユーザー一覧',

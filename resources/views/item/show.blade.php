@@ -50,10 +50,7 @@
                                 </td>
                                     <div>
                                         @if($item->image)
-                                        <div class="text-center">
-                                            (画像ファイル：{{ $item->image }})
-                                        </div>
-                                        <img src="{{ asset('storage/images/'.$item->image) }}" class="rounded mx-auto d-block" style="height:300px" alt="車両画像">
+                                        <img src="{{ asset('storage/avatar/'.($item->image??'kitchen_car_default.jpg')) }}" class="rounded mx-auto d-block" style="height:300px" alt="車両画像">
                                         @endif
                                     </div>
                             </tr>

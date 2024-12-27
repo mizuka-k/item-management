@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Location;
+use Illuminate\Support\Facades\storage;
 
 class LocationController extends Controller
 {
@@ -28,7 +29,8 @@ class LocationController extends Controller
             // バリデーション
             $this->validate($request, [
                 'title' => 'required|max:100',
-                'detail' => 'max:500',
+                'address' => 'required|max:255',
+                'detail' => 'required|max:1000',
                 'image' => 'image|max:1024',
             ]);
 
@@ -46,7 +48,7 @@ class LocationController extends Controller
             if(request('image')) {
                 $original = $request->file('image')->getClientOriginalName();
                 $name = date('Ymd_His').'_'.$original;
-                request()->file('image')->move('storage/images',$name);
+                request()->file('image')->move('storage/locations',$name);
                 $location->image =  $name;
             }
             $location->save();
@@ -72,15 +74,20 @@ class LocationController extends Controller
         // イベント情報編集処理
             $validated = $request->validate([
                 'title' => 'required|max:100',
-                'detail' => 'max:500',
+                'address' => 'required|max:255',
+                'detail' => 'required|max:1000',
                 'image' => 'image|max:1024',
             ]);
     
                 if(request('image')) {
+                    if($location->image !== 'location_default.jpg') {
+                        $oldlocation = 'public/locations/'.$location->image;
+                        Storage::delete($oldlocation);
+                    }
                     $original = $request->file('image')->getClientOriginalName();
                     $name = date('Ymd_His').'_'.$original;
-                    request()->file('image')->move('storage/images',$name);
-                    $location->image =  $name;
+                    request()->file('image')->storeAs('public/locations',$name);
+                    $validated['image'] =  $name;
                 }
             $validated['user_id'] = Auth::user()->id;
             $location->update($validated);
@@ -93,10 +100,10 @@ class LocationController extends Controller
 
     // イベント削除
     public function destroy(Location $location) {
-        // $this->authorize('delete', $item);
-        // if($item->image) {
-        //     Storage::disk('public')->delete('images/'.$item->image);
-        // }
+        if($location->image !== 'location_default.jpg') {
+            $oldlocation = 'public/locations/'.$location->image;
+            Storage::delete($oldlocation);
+        }
         $location->delete();
         return redirect()->route('location.index', $location)->with('alertMessage', '削除しました。');
     }

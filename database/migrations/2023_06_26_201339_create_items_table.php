@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->index();
             $table->string('name', 100)->index();
-            $table->string('image')->nullable();
-            $table->string('detail', 500)->nullable();
+            $table->string('image')->default('kitchen_car_default.jpg');
+            $table->string('detail', 1000)->nullable();
             $table->timestamps();
         });
     }

@@ -41,7 +41,7 @@ class ItemController extends Controller
             // バリデーション
             $this->validate($request, [
                 'name' => 'required|max:100',
-                'detail' => 'max:500',
+                'detail' => 'max:1000',
                 'image' => 'image|max:1024',
             ]);
 
@@ -54,7 +54,7 @@ class ItemController extends Controller
             if(request('image')) {
                 $original = $request->file('image')->getClientOriginalName();
                 $name = date('Ymd_His').'_'.$original;
-                request()->file('image')->move('storage/images',$name);
+                request()->file('image')->move('storage/avatar',$name);
                 $item->image =  $name;
             }
             $item->save();
@@ -77,15 +77,19 @@ class ItemController extends Controller
         if ($request->isMethod('patch')) {
             $validated = $request->validate(([
                 'name' => 'required|max:100',
-                'detail' => 'max:500',
+                'detail' => 'max:1000',
                 'image' => 'image|max:1024',
             ]));
 
             if(request('image')) {
+                if($item->image !== 'kitchen_car_default.jpg') {
+                    $oldavatar = 'public/avatar/'.$item->image;
+                    Storage::delete($oldavatar);
+                }
                 $original = $request->file('image')->getClientOriginalName();
                 $name = date('Ymd_His').'_'.$original;
-                request()->file('image')->move('storage/images',$name);
-                $item->image =  $name;
+                request()->file('image')->storeAs('public/avatar',$name);
+                $validated['image']  = $name;
             }
             $validated['user_id'] = Auth::user()->id;
             $item->update($validated);
@@ -97,10 +101,11 @@ class ItemController extends Controller
 
     // キッチンカー削除
     public function destroy(Item $item) {
-        // $this->authorize('delete', $item);
-        // if($item->image) {
-        //     Storage::disk('public')->delete('images/'.$item->image);
-        // }
+
+        if($item->image !== 'kitchen_car_default.jpg') {
+            $avatar = 'public/avatar/'.$item->image;
+            Storage::delete($avatar);
+        }
         $item->delete();
         return redirect()->route('item.index', $item)->with('alertMessage', '削除しました。');
     }
