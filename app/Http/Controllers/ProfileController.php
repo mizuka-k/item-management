@@ -18,10 +18,11 @@ class ProfileController extends Controller
 
     // プロフィール編集
     public function update(Request $request, User $user) {
+        $user = Auth::user();
         // バリデーションチェック
         $validated = $request->validate([
             'name' => 'required|string|max:100',
-            'email' => 'required|email:rfc,filter|regex:/^[!-~]+$/|unique:users,email,'.Auth::user()->email.',email',
+            'email' => 'required|max:255|unique:users,email,'.Auth::user()->email.',email',
         ],
         [
             'name.required' => '名前は必須です。',
@@ -30,22 +31,9 @@ class ProfileController extends Controller
             'email' => '有効なメールアドレスではありません。',
             'email.unique' => 'このメールアドレスはすでに使用されています。',
         ]);
-        // パスワードの値に入力があれば
-        // if ($validated['password']) {
-            // 現在のパスワードが合っているか確認
-            // if(!(Hash::check($request->get('current_password'), Auth::user()->password))) {
-            //     return back()->with('alertMessage','現在のパスワードが間違っています。');
-            // }
-            // パスワードハッシュ化
-        //     $validated['password'] = Hash::make($validated['password']);
-            
-        // } else {
-        // 値が無ければパラメータに含めない
-    //     unset($validated['password']);
-    // }
-    $user->update($validated);
-    return redirect()->route('profile.edit','$user->id')->with('successMessage','更新しました。');
-}
+        $user->update($validated);
+        return redirect()->route('profile.edit','$user->id')->with('successMessage','更新しました。');
+    }
 
     // パスワード編集表示
     public function passwordEdit() {
@@ -74,4 +62,6 @@ class ProfileController extends Controller
         $user->update($validated);
         return redirect()->route('password.edit','$user->id')->with('successMessage','更新しました。');
         }
+
+
 }

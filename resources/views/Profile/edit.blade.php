@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+
 <div class="container w-75">
     <div class="p-4 bg-body-tertiary m-4">
         <h3 class="pt-4 m-4 text-center">プロフィール</h3>

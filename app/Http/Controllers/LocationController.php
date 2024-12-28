@@ -12,10 +12,9 @@ class LocationController extends Controller
     /**
      * イベント一覧
      */
-    public function index()
+    public function index(Location $location)
     {
-        // イベント一覧取得
-        $locations = Location::all();
+        $locations = Location::paginate(10);
         return view('location.index', compact('locations'));
     }
 

@@ -17,7 +17,6 @@
     </div>
 @endif
     <div class="row">
-
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
@@ -66,6 +65,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="d-flex justify-content-center">
+                    {{ $items->links('vendor.pagination.bootstrap-5') }}
                 </div>
             </div>
         </div>

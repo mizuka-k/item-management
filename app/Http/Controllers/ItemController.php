@@ -25,10 +25,9 @@ class ItemController extends Controller
      */
     public function index()
     {
-        // キッチンカー一覧取得
-        $items = Item::all();
-
-        return view('item.index', compact('items'));
+        return view('item.index', [
+            'items' => Item::paginate(10),
+        ]);
     }
 
     /**

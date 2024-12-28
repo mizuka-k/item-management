@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use \Illuminate\Support\Facades\Auth; 
-use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     // ユーザー一覧表示
-    public function index(User $user, Request $request) {
+    public function index(User $user) {
         $users = User::paginate(10);
         return view('user.index',compact('users'));
     }

@@ -75,7 +75,9 @@
                     </table>
                 </div>
             </div>
-
+            <div class="d-flex justify-content-center">
+                {{ $locations->links('vendor.pagination.bootstrap-5') }}
+            </div>
         </div>
     </div>
 @stop
