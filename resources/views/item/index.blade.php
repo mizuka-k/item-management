@@ -23,11 +23,13 @@
                 <div class="card-header">
                     <h3 class="card-title">キッチンカー一覧</h3>
                     <div class="card-tools">
+                        @can('admin')
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
                                 <a href="{{ url('items/add') }}" class="btn btn-default">キッチンカー登録</a>
                             </div>
                         </div>
+                        @endcan
                     </div>
                 </div>
                 <div class="card-body table-responsive p-0">
@@ -51,6 +53,7 @@
                                             <a href="{{ route('item.show',$item) }}"><button type="button" class="btn btn-outline-info">詳細</button></a>
                                         </p>
                                     </td>
+                                    @can('admin')
                                     <td style="width: 35px"> 
                                         <form method="POST" action="{{ route('item.delete', $item->id) }}" >
                                             @csrf
@@ -58,6 +61,7 @@
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('本当に削除しますか？')">削除</button>
                                         </form>
                                     </td>
+                                    @endcan
                                 </tr>
                             @endforeach
                         </tbody>

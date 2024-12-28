@@ -56,6 +56,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    @can('admin')
                     <div class="text-center">
                         <a href="{{ route('item.edit', $item) }}"><button type="button" class="btn btn-primary">編集ページへ</button></a>
                     </div>
@@ -66,6 +67,7 @@
                             <button type="submit" class="btn btn-danger" onClick="return confirm('本当に削除しますか？');">削除</button>
                         </form>
                     </div>
+                    @endcan
                 </div>
             </div>
         </div>

@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'ユーザー一覧')
 
 @section('content')
 <div class="container">
@@ -22,7 +24,7 @@
                         <div class="row mb-3">
                             <label for="id" class="col-md-4 col-form-label text-md-end">ユーザーID</label>
                             <div class="col-md-6">
-                                <input id="id" type="text" class="form-control" name="email" value="{{ $user->id }}" readonly>
+                                <input id="id" type="text" class="form-control" name="id" value="{{ $user->id }}" readonly>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -61,18 +63,21 @@
                                 <div>管理者</div>
                                 @endif
                             </div>
-
-                            <div class="col-md-6">
-                                <input id="general" type="radio" class="form-check-input" name="role" value="0" {{ old('general', $user->role) == '0' ? 'checked' : '' }}>
-                                <label class="form-check-label" for="general">管理者権限を外す</label>
-                            </div>
-                            <div class="col-md-6">
-                                <input id="admin" type="radio" class="form-check-input" name="role" value="1" {{ old('admin', $user->role) == '1' ? 'checked' : '' }}>
-                                <label class="form-check-label" for="admin">管理者権限を付与する</label>
-                            </div>
                         </div>
+                            <div class="row mb-3">
+                                <label for="role" class="col-md-4 col-form-label text-md-end">ステータス付与</label>
+                                <div class="col-md-3">
+                                    <input id="general" type="radio" class="form-check-input" name="role" value="0" {{ old('general', $user->role) == '0' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="general">管理者権限を外す</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input id="admin" type="radio" class="form-check-input" name="role" value="1" {{ old('admin', $user->role) == '1' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="admin">管理者権限を付与する</label>
+                                </div>
+                            </div>
 
-                        <div class="row mb-0">
+
+                        <div class="p-4">
                             <div class="d-flex justify-content-center m-2">
                                 <button type="submit" class="btn btn-primary">編集する</button>
                             </div>
@@ -86,4 +91,14 @@
         </div>
     </div>
 </div>
-@endsection
+@stop
+@section('footer')
+<p class="text-center">©︎2024 MIZUKA KAJITA</p>
+@stop
+
+@section('css')
+@stop
+
+@section('js')
+@stop
+

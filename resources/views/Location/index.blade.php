@@ -13,11 +13,13 @@
                 <div class="card-header">
                     <h3 class="card-title">イベント一覧</h3>
                     <div class="card-tools">
+                        @can('admin')
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
                                 <a href="{{ url('locations/add') }}" class="btn btn-default">イベント登録</a>
                             </div>
                         </div>
+                        @endcan
                     </div>
                 </div>
                 @if(session('alertMessage'))
@@ -58,6 +60,7 @@
                                     <td style="width: 35px">
                                         <a href="{{ route('location.show',$location) }}"><button type="button" class="btn btn-outline-info">詳細</button></a>
                                     </td>
+                                    @can('admin')
                                     <td style="width: 35px"> 
                                         <form method="POST" action="{{ route('location.delete', $location->id) }}" >
                                             @csrf
@@ -65,6 +68,7 @@
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('本当に削除しますか？')">削除</button>
                                         </form>
                                     </td>
+                                    @endcan
                                 </tr>
                             @endforeach
                         </tbody>
@@ -74,6 +78,9 @@
 
         </div>
     </div>
+@stop
+@section('footer')
+<p class="text-center">©︎2024 MIZUKA KAJITA</p>
 @stop
 
 @section('css')

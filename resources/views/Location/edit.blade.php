@@ -132,7 +132,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="text-center m-4">
                             <div class="m-2">
                                 <button type="submit" class="btn btn-primary">編集する</button>
@@ -147,6 +146,9 @@
         </div>
     </div>
 </div>
+@stop
+@section('footer')
+<p class="text-center">©︎2024 MIZUKA KAJITA</p>
 @stop
 
 @section('css')

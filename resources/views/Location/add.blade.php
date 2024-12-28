@@ -132,6 +132,9 @@
     </div>
 </div>
 @stop
+@section('footer')
+<p class="text-center">©︎2024 MIZUKA KAJITA</p>
+@stop
 
 @section('css')
 @stop

@@ -8,29 +8,9 @@
 
 @section('content')
 <div class="container">
-    <div class="mx-auto h-auto">
-        <div class="center-block">    
-            <div id="carouselExampleAutoplaying" class="carousel slide img-fluid" data-bs-ride="carousel" >
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                    <img src="{{ asset('img/food_truck1.jpg') }}" class="d-block img-fluid h-50" alt="">
-                    </div>
-                    <div class="carousel-item">
-                    <img src="{{ asset('img/food_truck2.jpg') }}" class="d-block img-fluid h-50" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                    <img src="{{ asset('img/food_truck3.jpg') }}" class="d-block img-fluid h-50" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+    <div class="center-block">    
+        <img src="{{ asset('img/food_truck1.jpg') }}" class="d-block img-fluid h-50" alt="">
+    </div>
 
             <div class="container-fluid pb-4">
                 <div class="row">
@@ -69,3 +49,4 @@
 @section('js')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 @stop
+

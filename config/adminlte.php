@@ -308,6 +308,7 @@ return [
             'text' => 'イベント登録',
             'url'  => 'locations/add',
             'icon' => 'fas fa-solid fa-plus',
+            'can' => ['admin'],
         ],
         [
             'text' => 'キッチンカー一覧',
@@ -318,23 +319,25 @@ return [
             'text' => 'キッチンカー登録',
             'url'  => 'items/add',
             'icon' => 'fas fa-solid fa-plus',
+            'can' => ['admin'],
         ],
         [
             'text' => 'ユーザー一覧',
             'url'  => 'users/index',
             'icon' => 'fas fa-solid fa-users',
+            'can' => ['admin'],
         ],
-        // ['header' => 'account_settings'],
-        // [
-        //     'text' => 'profile',
-        //     'url'  => 'profile/{id}',
-        //     'icon' => 'fas fa-fw fa-user',
-        // ],
-        // [
-        //     'text' => 'change_password',
-        //     'url'  => 'admin/settings',
-        //     'icon' => 'fas fa-fw fa-lock',
-        // ],
+        ['header' => 'account_settings'],
+        [
+            'text' => 'profile',
+            'url'  => 'profile/edit/{id}',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'change_password',
+            'url'  => 'profile/settings/{id}',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
 
         // AdminLTEデフォルト
             /*
