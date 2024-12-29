@@ -106,8 +106,8 @@
                             <input type="text" class="form-control" id="price" name="price" placeholder="価格" value="{{ old('price') }}">
                         </div>
                         <div class="form-group">
-                            <label for="detail">詳細</label>
-                            <textarea class="form-control" id="detail" name="detail" placeholder="詳細説明">{{ old('detail') }}</textarea>
+                            <label for="detail">商品説明</label>
+                            <textarea class="form-control" id="detail" name="detail" placeholder="商品説明">{{ old('detail') }}</textarea>
                         </div>
 
                         <!-- 画像 -->

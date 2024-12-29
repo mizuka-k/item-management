@@ -40,7 +40,7 @@
                                 <td>{{ Str::limit($menu->detail,200,'...') }}</td>
                                 <td style="width:5%">
                                     <p>
-                                        <a href="{{ route('menu.edit',$menu) }}"><button type="button" class="btn btn-outline-info">編集</button></a>
+                                        <a href="{{ route('menu.show',$menu) }}"><button type="button" class="btn btn-outline-info">詳細</button></a>
                                     </p>
                                 </td>
                                 @can('admin')
@@ -63,6 +63,9 @@
             </div>
         </div>
     </div>
+@stop
+@section('footer')
+<p class="text-center">©︎2024 MIZUKA KAJITA</p>
 @stop
 
 @section('css')

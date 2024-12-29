@@ -71,11 +71,14 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::prefix('menu')->group(function () {
         Route::get('/index',[App\Http\Controllers\MenuController::class, 'index'])->name('menu.index');
-        Route::get('/add',[App\Http\Controllers\MenuController::class, 'create']);
-        Route::post('/add',[App\Http\Controllers\MenuController::class, 'store'])->name('menu.store');
-        Route::get('/edit/{menu}',[App\Http\Controllers\MenuController::class, 'edit'])->name('menu.edit');
-        Route::patch('/add/{menu}',[App\Http\Controllers\MenuController::class, 'edit'])->name('menu.update');
-        Route::delete('/delete/{menu}',[App\Http\Controllers\MenuController::class, 'destroy'])->name('menu.delete');
+        Route::get('/show/{menu}',[App\Http\Controllers\MenuController::class, 'show'])->name('menu.show');
+        Route::group(['middleware' => 'can:admin'], function() {
+            Route::get('/add',[App\Http\Controllers\MenuController::class, 'create']);
+            Route::post('/add',[App\Http\Controllers\MenuController::class, 'store'])->name('menu.store');
+            Route::get('/edit/{menu}',[App\Http\Controllers\MenuController::class, 'edit'])->name('menu.edit');
+            Route::patch('/add/{menu}',[App\Http\Controllers\MenuController::class, 'edit'])->name('menu.update');
+            Route::delete('/delete/{menu}',[App\Http\Controllers\MenuController::class, 'destroy'])->name('menu.delete');
+        });
     });
 });
 

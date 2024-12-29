@@ -44,7 +44,7 @@
                             <input type="text" class="form-control" id="price" name="price" placeholder="価格" value="{{ old('price',$menu->price) }}">
                         </div>
                         <div class="form-group">
-                            <label for="detail">詳細</label>
+                            <label for="detail">商品説明</label>
                             <textarea class="form-control" id="detail" name="detail" placeholder="詳細説明">{{ old('detail',$menu->detail) }}</textarea>
                         </div>
 
@@ -70,6 +70,9 @@
             </div>
         </div>
     </div>
+@stop
+@section('footer')
+<p class="text-center">©︎2024 MIZUKA KAJITA</p>
 @stop
 
 @section('css')
