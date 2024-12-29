@@ -53,7 +53,7 @@ class ItemController extends Controller
             if(request('image')) {
                 $original = $request->file('image')->getClientOriginalName();
                 $name = date('Ymd_His').'_'.$original;
-                request()->file('image')->move('storage/avatar',$name);
+                request()->file('image')->move('storage/',$name);
                 $item->image =  $name;
             }
             $item->save();
@@ -82,12 +82,12 @@ class ItemController extends Controller
 
             if(request('image')) {
                 if($item->image !== 'kitchen_car_default.jpg') {
-                    $oldavatar = 'public/avatar/'.$item->image;
+                    $oldavatar = 'storage/'.$item->image;
                     Storage::delete($oldavatar);
                 }
                 $original = $request->file('image')->getClientOriginalName();
                 $name = date('Ymd_His').'_'.$original;
-                request()->file('image')->storeAs('public/avatar',$name);
+                request()->file('image')->move('storage/',$name);
                 $validated['image']  = $name;
             }
             $validated['user_id'] = Auth::user()->id;
@@ -102,7 +102,7 @@ class ItemController extends Controller
     public function destroy(Item $item) {
 
         if($item->image !== 'kitchen_car_default.jpg') {
-            $avatar = 'public/avatar/'.$item->image;
+            $avatar = 'storage/'.$item->image;
             Storage::delete($avatar);
         }
         $item->delete();
