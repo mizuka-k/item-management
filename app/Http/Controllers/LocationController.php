@@ -79,10 +79,10 @@ class LocationController extends Controller
             ]);
     
                 if(request('image')) {
-                    if($location->image !== 'location_default.jpg') {
-                        $oldlocation = 'public/locations/'.$location->image;
-                        Storage::delete($oldlocation);
-                    }
+                    // if($location->image !== 'location_default.jpg') {
+                    //     $oldlocation = 'public/locations/'.$location->image;
+                    //     Storage::delete($oldlocation);
+                    // }
                     $original = $request->file('image')->getClientOriginalName();
                     $name = date('Ymd_His').'_'.$original;
                     request()->file('image')->storeAs('public/locations',$name);
@@ -99,10 +99,10 @@ class LocationController extends Controller
 
     // イベント削除
     public function destroy(Location $location) {
-        if($location->image !== 'location_default.jpg') {
-            $oldlocation = 'public/locations/'.$location->image;
-            Storage::delete($oldlocation);
-        }
+        // if($location->image !== 'location_default.jpg') {
+        //     $oldlocation = 'public/locations/'.$location->image;
+        //     Storage::delete($oldlocation);
+        // }
         $location->delete();
         return redirect()->route('location.index', $location)->with('alertMessage', '削除しました。');
     }
