@@ -46,7 +46,7 @@
                     <!-- 画像 -->
                         <div class="form-group text-center">
                             @if($item->image)
-                            <img src="{{ asset('storage/avatar/'.$item->image) }}" alt="キッチンカーの画像" class="mx-auto m-2" style="height:300px">
+                            <img src="{{ asset('storage/'.$item->image) }}" alt="キッチンカーの画像" class="mx-auto m-2" style="height:300px">
                             @endif
                         </div>
                         <div class="form-group">
