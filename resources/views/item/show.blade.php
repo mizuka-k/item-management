@@ -7,16 +7,17 @@
 @stop
 
 @section('content')
+@if(session('alertMessage'))
+    <div class="mt-4 alert alert-danger" role="alert">
+        {{ session('alertMessage')}}
+    </div>
+@elseif(session('successMessage'))
+    <div class="mt-4 alert alert-success" role="alert">
+        {{ session('successMessage' )}}
+    </div>
+@endif
     <div class="row">
-    @if(session('alertMessage'))
-        <div class="mt-4 alert alert-danger" role="alert">
-            {{ session('alertMessage')}}
-        </div>
-    @elseif(session('successMessage'))
-        <div class="mt-4 alert alert-success" role="alert">
-            {{ session('successMessage' )}}
-        </div>
-    @endif
+
         <div class="col-12 p-4">
             <div class="card">
                 <div class="card-header">
@@ -24,6 +25,13 @@
                 </div>
                 <div class="table-responsive" style="height:auto">
                     <table class="table align-middle">
+                        <div class="row">
+                            <div class="col p-4">
+                                @if($item->image)
+                                <img src="{{ asset('storage/avatar/'.($item->image??'kitchen_car_default.jpg')) }}" class="rounded mx-auto d-block" style="height:300px" alt="車両画像">
+                                @endif
+                            </div>
+                        </div>
                         <tbody>
                             <tr class="align-middle">
                                 <th class="text-secondary" style="width:30%">ID</th>
@@ -38,6 +46,12 @@
                                 </td>
                             </tr>
                             <tr class="align-middle">
+                                <th class="text-secondary" style="width:30%">メニュー</th>
+                                <td style="width:50%">
+                                    <p><a href="{{ route('menu.index') }}" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">メニューリスト</a></p>
+                                </td>
+                            </tr>
+                            <tr class="align-middle">
                                 <th class="text-secondary">詳細</th>
                                 <td>
                                     <p class="m-0">{{ $item->detail }}</p>
@@ -48,11 +62,7 @@
                                 <td>
                                     <p class="m-0">{{ $item->created_at->format('Y-m-d H:i') }}</p>
                                 </td>
-                                    <div>
-                                        @if($item->image)
-                                        <img src="{{ asset('storage/avatar/'.($item->image??'kitchen_car_default.jpg')) }}" class="rounded mx-auto d-block" style="height:300px" alt="車両画像">
-                                        @endif
-                                    </div>
+
                             </tr>
                         </tbody>
                     </table>
@@ -67,11 +77,53 @@
                             <button type="submit" class="btn btn-danger" onClick="return confirm('本当に削除しますか？');">削除</button>
                         </form>
                     </div>
-                    @endcan
                 </div>
             </div>
-        </div>
-    </div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                    </ul>
+                </div>
+            @endif
+            <div class="card-header">
+                <h2 class="card-title">メニュー登録</h2>
+            </div>
+            <div class="card">
+                <form method="POST" action="{{ route('menu.store') }}" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="item_id" value="{{ $item->id }}">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="name">商品名</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="商品名" value="{{ old('name') }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="detail">価格</label>
+                            <input type="text" class="form-control" id="price" name="price" placeholder="価格" value="{{ old('price') }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="detail">詳細</label>
+                            <textarea class="form-control" id="detail" name="detail" placeholder="詳細説明">{{ old('detail') }}</textarea>
+                        </div>
+
+                        <!-- 画像 -->
+                        <div class="form-group">
+                            <label for="image">画像:1MBまで</label>
+                            <div>
+                                <input type="file" name="image" id="image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button type="submit" class="btn btn-primary">メニューを登録する</button>
+                    </div>
+                </form>
+            </div>
+            @endcan
 @stop
 
 @section('css')

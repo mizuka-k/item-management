@@ -12,6 +12,13 @@ class Item extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+    public function menu() {
+        return $this->hasMany(Menu::class);
+    }
+
+    // public function choice() {
+    //     return $this->hasMany(Choice::class);
+    // }
     /**
      * The attributes that are mass assignable.
      *
