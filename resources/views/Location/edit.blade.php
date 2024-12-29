@@ -134,7 +134,7 @@
                         </div>
                         <div class="text-center m-4">
                             <div class="m-2">
-                                <button type="submit" class="btn btn-primary">編集する</button>
+                                <button type="submit" class="btn btn-info">編集する</button>
                             </div>
                             <div class="m-2">
                                 <a href="{{ route('location.index',$location) }}"><button type="button" class="btn btn-secondary">戻る</button></a>

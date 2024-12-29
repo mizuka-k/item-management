@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     <div class="text-center mb-2">
-                        <button type="submit" class="btn btn-primary">編集</button>
+                        <button type="submit" class="btn btn-info">編集</button>
                     </div>
                 </form>
                 <div class="text-center mb-4">

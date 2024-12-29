@@ -119,7 +119,7 @@
 
 
                             <div class="d-flex justify-content-center mt-4 mb2">
-                                <button type="submit" class="btn btn-primary">登録</button>
+                                <button type="submit" class="btn btn-info">登録</button>
                             </div>
                             <div class="d-flex justify-content-center m-2">
                                 <a href="{{ route('location.index') }}"><button type="button" class="btn btn-secondary">キャンセル</button></a>

@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div class="card-footer text-center">
-                        <button type="submit" class="btn btn-primary">編集する</button>
+                        <button type="submit" class="btn btn-info">編集する</button>
                         <a href="{{ route('menu.index',$menu) }}"><button type="button" class="btn btn-secondary m-2">戻る</button></a>
                     </div>
 

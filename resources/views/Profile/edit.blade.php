@@ -48,7 +48,7 @@
 
                 <div class="p-4">
                     <div class="d-flex justify-content-center m-2">
-                        <button type="submit" class="btn btn-outline-info">編集</button>
+                        <button type="submit" class="btn btn-info">編集</button>
                     </div>
                     <div class="d-flex justify-content-center m-2">
                         <a href="{{ route('home') }}"><button type="button" class="btn btn-secondary">戻る</button></a>

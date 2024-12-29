@@ -68,7 +68,7 @@
                     </table>
                     @can('admin')
                     <div class="text-center">
-                        <a href="{{ route('item.edit', $item) }}"><button type="button" class="btn btn-primary">編集ページへ</button></a>
+                        <a href="{{ route('item.edit', $item) }}"><button type="button" class="btn btn-outline-info">編集ページへ</button></a>
                     </div>
                     <div class="text-center m-2">
                         <form method="POST" action="{{ route('item.delete',$item) }}">
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                     <div class="card-footer text-center">
-                        <button type="submit" class="btn btn-primary">メニューを登録する</button>
+                        <button type="submit" class="btn btn-info">メニューを登録する</button>
                     </div>
                 </form>
             </div>

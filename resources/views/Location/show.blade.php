@@ -77,7 +77,7 @@
                     </table>
                     @can('admin')
                     <div class="text-center">
-                        <a href="{{ route('location.edit', $location) }}"><button type="button" class="btn btn-primary">編集ページへ</button></a>
+                        <a href="{{ route('location.edit', $location) }}"><button type="button" class="btn btn-outline-info">編集ページへ</button></a>
                     </div>
                     <div class="text-center m-2">
                         <form method="POST" action="{{ route('location.delete',$location) }}">
