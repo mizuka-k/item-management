@@ -47,7 +47,7 @@ class MenuController extends Controller
         if(request('image')) {
             $original = $request->file('image')->getClientOriginalName();
             $name = date('Ymd_His').'_'.$original;
-            request()->file('image')->move('storage/menu',$name);
+            request()->file('image')->move('storage/',$name);
             $menu->image =  $name;
         }
         $menu->save();
