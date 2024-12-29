@@ -78,10 +78,10 @@ class MenuController extends Controller
                     ]));
         
                     if(request('image')) {
-                        if($menu->image !== 'menu.jpg') {
-                            $oldavatar = 'public/menu/'.$menu->image;
-                            Storage::delete($oldavatar);
-                        }
+                        // if($menu->image !== 'menu.jpg') {
+                        //     $oldavatar = 'public/menu/'.$menu->image;
+                        //     Storage::delete($oldavatar);
+                        // }
                         $original = $request->file('image')->getClientOriginalName();
                         $name = date('Ymd_His').'_'.$original;
                         request()->file('image')->storeAs('public/menu',$name);
@@ -109,6 +109,7 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        //
+        $menu->delete();
+        return redirect()->route('menu.index', $menu)->with('alertMessage', '削除しました。');
     }
 }

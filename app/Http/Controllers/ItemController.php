@@ -81,10 +81,10 @@ class ItemController extends Controller
             ]));
 
             if(request('image')) {
-                if($item->image !== 'kitchen_car_default.jpg') {
-                    $oldavatar = 'storage/'.$item->image;
-                    Storage::delete($oldavatar);
-                }
+                // if($item->image !== 'kitchen_car_default.jpg') {
+                //     $oldavatar = 'storage/'.$item->image;
+                //     Storage::delete($oldavatar);
+                // }
                 $original = $request->file('image')->getClientOriginalName();
                 $name = date('Ymd_His').'_'.$original;
                 request()->file('image')->move('storage/',$name);
@@ -101,10 +101,10 @@ class ItemController extends Controller
     // キッチンカー削除
     public function destroy(Item $item) {
 
-        if($item->image !== 'kitchen_car_default.jpg') {
-            $avatar = 'storage/'.$item->image;
-            Storage::delete($avatar);
-        }
+        // if($item->image !== 'kitchen_car_default.jpg') {
+        //     $avatar = 'storage/'.$item->image;
+        //     Storage::delete($avatar);
+        // }
         $item->delete();
         return redirect()->route('item.index', $item)->with('alertMessage', '削除しました。');
     }
