@@ -122,7 +122,7 @@
                         <div class="form-group">
                             @if($location->image)
                             <div class="text-center">
-                                <img src="{{ asset('storage/locations/'.$location->image) }}" alt="イベントイメージ" class="mx-auto m-2" style="height:300px">
+                                <img src="{{ asset('storage/'.$location->image) }}" alt="イベントイメージ" class="mx-auto m-2" style="height:300px">
                             </div>
                             @endif
                             <div class="form-group">

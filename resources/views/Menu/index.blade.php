@@ -34,7 +34,7 @@
                             <tr>
                                 <td style="width:20%">{{ $menu->name }}</td>
                                 <td style="width:10%">
-                                    <img src="{{ asset('storage/menu/'.($menu->image??'menu.jpg')) }}" class="rounded mx-auto d-block" style="height:30px" alt="メニュー画像">
+                                    <img src="{{ asset('storage/'.($menu->image??'menu.jpg')) }}" class="rounded mx-auto d-block" style="height:30px" alt="メニュー画像">
                                 </td>
                                 <td style="width:10%">{{ $menu->price."円" }}</td>
                                 <td>{{ Str::limit($menu->detail,200,'...') }}</td>

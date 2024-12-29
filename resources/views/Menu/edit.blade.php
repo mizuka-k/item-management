@@ -52,7 +52,7 @@
                         <div class="form-group">
                             @if($menu->image)
                             <div class="text-center">
-                                <img src="{{ asset('storage/menu/'.$menu->image) }}" alt="イベントイメージ" class="mx-auto m-2" style="height:300px">
+                                <img src="{{ asset('storage/'.$menu->image) }}" alt="イベントイメージ" class="mx-auto m-2" style="height:300px">
                             </div>
                             @endif
                             <label for="image">画像:1MBまで</label>

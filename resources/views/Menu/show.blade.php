@@ -18,7 +18,7 @@
                         <tbody>
                             <div class="m-4">
                                 @if($menu->image)
-                                <img src="{{ asset('storage/menu/'.($menu->image??'menu.jpg')) }}" class="rounded mx-auto d-block" style="height:300px" alt="メニュー画像">
+                                <img src="{{ asset('storage/'.($menu->image??'menu.jpg')) }}" class="rounded mx-auto d-block" style="height:300px" alt="メニュー画像">
                                 @endif
                             </div>
                             <tr class="align-middle">
