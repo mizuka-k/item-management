@@ -9,16 +9,4 @@ class Choice extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'status',
-        'location_id',
-        'item_id',
-    ];
-
-    public function location() {
-        return $this->hasMany(Location::class);
-    }
-    public function item() {
-        return $this->hasMany(Item::class);
-    }
 }
