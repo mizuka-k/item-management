@@ -84,7 +84,7 @@ class MenuController extends Controller
                         // }
                         $original = $request->file('image')->getClientOriginalName();
                         $name = date('Ymd_His').'_'.$original;
-                        request()->file('image')->storeAs('public/menu',$name);
+                        request()->file('image')->move('storage/',$name);
                         $validated['image']  = $name;
                     }
                     $validated['item_id'] = $request->item_id;
