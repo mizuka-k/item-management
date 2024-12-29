@@ -10,12 +10,12 @@ class UserController extends Controller
     // ユーザー一覧表示
     public function index(User $user) {
         $users = User::paginate(10);
-        return view('user.index',compact('users'));
+        return view('User.index',compact('users'));
     }
 
     // ユーザー編集画面表示
     public function edit(User $user) {
-        return view('user.edit', compact('user'));
+        return view('User.edit', compact('user'));
     }
     // ユーザー編集処理
     public function update(Request $request, User $user) {

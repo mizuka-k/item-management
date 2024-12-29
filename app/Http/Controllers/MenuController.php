@@ -13,7 +13,7 @@ class MenuController extends Controller
      */
     public function index(Menu $menu)
     {
-        return view('menu.index', [
+        return view('Menu.index', [
             'menus' => Menu::paginate(10),
         ]);
     }
@@ -23,7 +23,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('menu.add');
+        return view('Menu.add');
     }
 
     /**
@@ -61,7 +61,7 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
-        return view('menu.show', compact('menu'));
+        return view('Menu.show', compact('menu'));
     }
 
     /**
@@ -93,7 +93,7 @@ class MenuController extends Controller
                     return redirect()->route('menu.edit', $menu)->with('successMessage', '更新しました。');
                 }
         
-                return view('menu.edit',compact('menu'));
+                return view('Menu.edit',compact('menu'));
             }
 
     /**

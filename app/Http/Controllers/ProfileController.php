@@ -13,7 +13,7 @@ class ProfileController extends Controller
     // プロフィール表示
     public function edit() {
         $auth = Auth::user();
-        return view('profile.edit', compact('auth'));
+        return view('Profile.edit', compact('auth'));
     }
 
     // プロフィール編集
@@ -38,7 +38,7 @@ class ProfileController extends Controller
     // パスワード編集表示
     public function passwordEdit() {
         $auth = Auth::user();
-        return view('profile.password_edit', compact('auth'));
+        return view('Profile.password_edit', compact('auth'));
     }
 
     // パスワード更新

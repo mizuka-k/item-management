@@ -15,7 +15,7 @@ class LocationController extends Controller
     public function index(Location $location)
     {
         $locations = Location::paginate(10);
-        return view('location.index', compact('locations'));
+        return view('Location.index', compact('locations'));
     }
 
     /**
@@ -53,7 +53,7 @@ class LocationController extends Controller
             $location->save();
             return redirect('/locations/index')->with('successMessage', '保存しました。');
         }
-        return view('location.add');
+        return view('Location.add');
 
     }
 
@@ -61,7 +61,7 @@ class LocationController extends Controller
      *  詳細表示
      */
     public function show(Location $location) {
-        return view('location.show',compact('location'));
+        return view('Location.show',compact('location'));
     }
     /**
      *  イベント情報編集
@@ -93,7 +93,7 @@ class LocationController extends Controller
             return redirect()->route('location.edit', $location)->with('successMessage', '更新しました。');
         }
 
-        return view('location.edit', compact('location'));
+        return view('Location.edit', compact('location'));
     }
 
 
