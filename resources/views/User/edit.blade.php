@@ -3,17 +3,19 @@
 @section('title', 'ユーザー一覧')
 
 @section('content')
+
 <div class="container">
+@if(session('alertMessage'))
+<div class="mt-4 alert alert-danger" role="alert">
+    {{ session('alertMessage')}}
+</div>
+@elseif(session('successMessage'))
+<div class="mt-4 alert alert-success" role="alert">
+    {{ session('successMessage' )}}
+</div>
+@endif
     <div class="row justify-content-center">
-    @if(session('alertMessage'))
-        <div class="mt-4 alert alert-danger" role="alert">
-            {{ session('alertMessage')}}
-        </div>
-    @elseif(session('successMessage'))
-        <div class="mt-4 alert alert-success" role="alert">
-            {{ session('successMessage' )}}
-        </div>
-    @endif
+
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">ユーザー情報</div>
