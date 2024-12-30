@@ -47,7 +47,7 @@ class LocationController extends Controller
             if(request('image')) {
                 $original = $request->file('image')->getClientOriginalName();
                 $name = date('Ymd_His').'_'.$original;
-                request()->file('image')->move('storage/locations',$name);
+                request()->file('image')->move('storage/',$name);
                 $location->image =  $name;
             }
             $location->save();
@@ -85,7 +85,7 @@ class LocationController extends Controller
                     // }
                     $original = $request->file('image')->getClientOriginalName();
                     $name = date('Ymd_His').'_'.$original;
-                    request()->file('image')->storeAs('public/locations',$name);
+                    request()->file('image')->move('storage',$name);
                     $validated['image'] =  $name;
                 }
             $validated['user_id'] = Auth::user()->id;
