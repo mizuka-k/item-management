@@ -34,7 +34,7 @@
                             </div>
                     </div>
                     <div class="row mb-3">
-                            <label for="current_password" class="col-md-4 col-form-label text-md-end">現在のパスワード(確認)</label>
+                            <label for="current_password" class="col-md-4 col-form-label text-md-end">新しいパスワード(確認)</label>
                             <div class="col-md-6">
                                 <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" placeholder="******">
                             </div>
