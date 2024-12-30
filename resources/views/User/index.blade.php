@@ -51,7 +51,7 @@
                                     </td>
                                     <td>
                                         <p>
-                                            <a href="{{ route('user.edit',$user) }}"><button type="button" class="btn btn-outline-info">詳細</button></a>
+                                            <a href="{{ route('user.edit',$user) }}"><button type="button" class="btn btn-outline-info">編集</button></a>
                                         </p>
                                     </td>
                                     <td>
