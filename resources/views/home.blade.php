@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'ホーム画面')
+@section('title', 'HOME')
 
 @section('content_header')
     <h1>KitchenCarHub</h1>
