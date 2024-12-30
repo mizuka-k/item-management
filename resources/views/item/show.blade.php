@@ -45,12 +45,12 @@
                                     <p class="m-0">{{ $item->name }}</p>
                                 </td>
                             </tr>
-                            <tr class="align-middle">
+                            <!-- <tr class="align-middle">
                                 <th class="text-secondary" style="width:30%">メニュー</th>
                                 <td style="width:50%">
                                     <p><a href="{{ route('menu.index') }}" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">メニューリスト</a></p>
                                 </td>
-                            </tr>
+                            </tr> -->
                             <tr class="align-middle">
                                 <th class="text-secondary">詳細</th>
                                 <td>
@@ -88,10 +88,10 @@
                     </ul>
                 </div>
             @endif
-            <div class="card-header">
+            <!-- <div class="card-header">
                 <h2 class="card-title">メニュー登録</h2>
-            </div>
-            <div class="card">
+            </div> -->
+            <!-- <div class="card">
                 <form method="POST" action="{{ route('menu.store') }}" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="item_id" value="{{ $item->id }}">
@@ -108,10 +108,10 @@
                         <div class="form-group">
                             <label for="detail">商品説明</label>
                             <textarea class="form-control" id="detail" name="detail" placeholder="商品説明">{{ old('detail') }}</textarea>
-                        </div>
+                        </div> -->
 
                         <!-- 画像 -->
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="image">画像:1MBまで</label>
                             <div>
                                 <input type="file" name="image" id="image">
@@ -123,7 +123,7 @@
                     </div>
                 </form>
             </div>
-            @endcan
+            @endcan -->
 @stop
 
 @section('css')
