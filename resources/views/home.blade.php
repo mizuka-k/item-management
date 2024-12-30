@@ -19,7 +19,7 @@
                         <h6 class="text-center">KitchenCar</h6>
                         <ul class="list-group list-group-flush">
                             @foreach ($items as $item)
-                            <li class="list-group-item"><a class="link-secondary link-offset-2 text-decoration-none link-opacity-25-hover"href="/search/show/{{ $item->id }}" >[{{ $item->name.':'.$item->created_at }}] が追加されました</a></li>
+                            <li class="list-group-item"><a class="link-secondary link-offset-2 text-decoration-none link-opacity-25-hover"href="/items/show/{{ $item->id }}" >[{{ $item->name.':'.$item->created_at }}] が追加されました</a></li>
                             @endforeach
                         </ul>
                     </div>
