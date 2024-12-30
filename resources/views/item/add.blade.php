@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name">屋号</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="屋号">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="屋号" value="{{ old('name') }}">
                         </div>
 
                         <div class="form-group">

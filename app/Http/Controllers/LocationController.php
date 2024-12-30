@@ -73,6 +73,7 @@ class LocationController extends Controller
         // イベント情報編集処理
             $validated = $request->validate([
                 'title' => 'required|max:100',
+                'status' => 'integer',
                 'address' => 'required|max:255',
                 'detail' => 'required|max:1000',
                 'image' => 'image|max:1024',
