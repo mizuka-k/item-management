@@ -30,7 +30,7 @@ class LocationController extends Controller
                 'title' => 'required|max:100',
                 'address' => 'required|max:255',
                 'detail' => 'required|max:1000',
-                'image' => 'image|max:1024',
+                'image' => 'image|max:1024|required',
             ]);
 
             // イベント登録処理

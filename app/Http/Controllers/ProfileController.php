@@ -52,7 +52,7 @@ class ProfileController extends Controller
             'password' => 'required|min:8|string|confirmed',
         ],
         [
-            'password.min' => 'パスワードは6字以上255字以下で入力してください。',
+            'password.min' => 'パスワードは8字以上255字以下で入力してください。',
             'password.confirmed' => '入力したパスワードがパスワード（確認）と一致しません。',
         ]);
 

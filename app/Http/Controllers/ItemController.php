@@ -40,8 +40,8 @@ class ItemController extends Controller
             // バリデーション
             $this->validate($request, [
                 'name' => 'required|max:100',
-                'detail' => 'max:1000',
-                'image' => 'image|max:1024',
+                'detail' => 'required|max:1000',
+                'image' => 'image|max:1024|required',
             ]);
 
             // キッチンカー登録処理
@@ -76,7 +76,7 @@ class ItemController extends Controller
         if ($request->isMethod('patch')) {
             $validated = $request->validate(([
                 'name' => 'required|max:100',
-                'detail' => 'max:1000',
+                'detail' => 'required|max:1000',
                 'image' => 'image|max:1024',
             ]));
 

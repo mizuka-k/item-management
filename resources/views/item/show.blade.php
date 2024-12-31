@@ -45,12 +45,6 @@
                                     <p class="m-0">{{ $item->name }}</p>
                                 </td>
                             </tr>
-                            <!-- <tr class="align-middle">
-                                <th class="text-secondary" style="width:30%">メニュー</th>
-                                <td style="width:50%">
-                                    <p><a href="{{ route('menu.index') }}" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">メニューリスト</a></p>
-                                </td>
-                            </tr> -->
                             <tr class="align-middle">
                                 <th class="text-secondary">詳細</th>
                                 <td>

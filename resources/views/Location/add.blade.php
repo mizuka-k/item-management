@@ -9,16 +9,25 @@
 
 @section('content')
 <div class="container">
+@if(session('alertMessage'))
+    <div class="mt-4 alert alert-danger" role="alert">
+        {{ session('alertMessage')}}
+    </div>
+@elseif(session('successMessage'))
+    <div class="mt-4 alert alert-success" role="alert">
+        {{ session('successMessage' )}}
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+        </ul>
+    </div>
+@endif
     <div class="row justify-content-center">
-    @if(session('alertMessage'))
-        <div class="mt-4 alert alert-danger" role="alert">
-            {{ session('alertMessage')}}
-        </div>
-    @elseif(session('successMessage'))
-        <div class="mt-4 alert alert-success" role="alert">
-            {{ session('successMessage' )}}
-        </div>
-    @endif
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">イベント登録</div>
@@ -58,25 +67,25 @@
                         <div class="row mb-3">
                             <label class="col-md-4 col-form-label text-md-end" for="start_date">イベント開始日</label>
                             <div class="col-md-6">
-                                <input class="form-control" type="date" id="start_date" name="start_date" value="" />
+                                <input class="form-control" type="date" id="start_date" name="start_date"value="{{ old('start_date') }}" />
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-md-4 col-form-label text-md-end" for="end_date">イベント終了日</label>
                             <div class="col-md-6">
-                                <input class="form-control" type="date" id="end_date" name="end_date" value="" />
+                                <input class="form-control" type="date" id="end_date" name="end_date" value="{{ old('end_date') }}" />
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-md-4 col-form-label text-md-end" for="start_time">営業開始時間</label>
                             <div class="col-md-6">
-                                <input class="form-control" type="time" id="start_time" name="start_time"/>
+                                <input class="form-control" type="time" id="start_time" name="start_time" value="{{ old('start_time') }}"/>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-md-4 col-form-label text-md-end" for="end_time">営業終了時間</label>
                             <div class="col-md-6">
-                                <input class="form-control" type="time" id="end_time" name="end_time"/>
+                                <input class="form-control" type="time" id="end_time" name="end_time" value="{{ old('end_time') }}"/>
                             </div>
                         </div>
 
@@ -98,7 +107,7 @@
                             <label for="detail" class="col-md-4 col-form-label text-md-end">詳細</label>
 
                             <div class="col-md-6">
-                                <textarea name="detail" id="detail" class="form-control" value="{{ old('address') }}" rows="6"></textarea>
+                                <textarea name="detail" id="detail" class="form-control"  rows="6">{{ old('detail') }}</textarea>
                                 @error('')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

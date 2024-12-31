@@ -18,7 +18,7 @@
                         <tbody>
                             <div class="m-4">
                                 @if($location->image)
-                                <img src="{{ asset('storage/'.($location->image??'location_default.jpg')) }}" class="rounded mx-auto d-block" style="height:300px" alt="車両画像">
+                                <img src="{{ asset('storage/'.($location->image??'location_default.jpg')) }}" class="rounded mx-auto d-block" style="height:300px" alt="イベントイメージ">
                                 @endif
                             </div>
                             <tr class="align-middle">
