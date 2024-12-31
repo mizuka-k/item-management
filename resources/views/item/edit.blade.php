@@ -56,17 +56,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="text-center mb-2">
-                        <button type="submit" class="btn btn-info">編集</button>
+                    <div class="text-center m-4">
+                        <div class="text-center mb-2">
+                            <button type="submit" class="btn btn-info">編集</button>
+                        </div>
+                        <div class="m-2">
+                            <a href="{{ route('item.index',$item) }}"><button type="button" class="btn btn-secondary">戻る</button></a>
+                        </div>
                     </div>
                 </form>
-                <div class="text-center mb-4">
-                <form method="POST" action="{{ route('item.delete', $item->id) }}" >
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('本当に削除しますか？')">削除</button>
-                </form>
-                </div>
             </div>
         </div>
     </div>
