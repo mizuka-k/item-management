@@ -74,6 +74,10 @@ class LocationController extends Controller
             $validated = $request->validate([
                 'title' => 'required|max:100',
                 'status' => 'integer',
+                'start_date' => 'required|integer',
+                'end_date' => 'required|integer',
+                'start_time' => 'required|integer',
+                'end_time' => 'required|integer',
                 'address' => 'required|max:255',
                 'detail' => 'required|max:1000',
                 'image' => 'image|max:1024',
