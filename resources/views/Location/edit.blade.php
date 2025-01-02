@@ -17,6 +17,15 @@
             {{ session('successMessage' )}}
         </div>
     @endif
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">{{ $location->title }}</div>
@@ -97,7 +106,7 @@
                             <div class="col-md-6">
                                 <input id="address" type="text" class="form-control" name="address" value="{{ old('address', $location->address) }}" required autocomplete="address">
 
-                                @error('')
+                                @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -110,7 +119,7 @@
 
                             <div class="col-md-6">
                                 <textarea name="detail" id="detail" class="form-control" value=""rows="6">{{ old('detail', $location->detail) }}</textarea>
-                                @error('')
+                                @error('detail')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
