@@ -1,6 +1,10 @@
 @extends('adminlte::page')
 @section('title', 'アカウント設定')
 
+@section('content_header')
+    <h1>アカウント設定</h1>
+@stop
+
 @section('content')
 <div class="container">
 @if(session('alertMessage'))
@@ -21,7 +25,7 @@
                         @csrf
                         @method('patch')
                     <!-- パスワード -->
-                    <div class="row mb-3">
+                        <div class="row mb-3">
                             <label for="current_password" class="col-md-4 col-form-label text-md-end">現在のパスワード</label>
                             <div class="col-md-6">
                                 <input class="form-control" type="password" id="current_password" name="current_password" placeholder="******">

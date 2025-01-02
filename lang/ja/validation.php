@@ -221,7 +221,7 @@ return [
         'minute' => '分',
         'mobile' => '携帯',
         'month' => '月',
-        'name' => '名前',
+        'name' => '屋号',
         'national_code' => '国コード',
         'number' => '番号',
         'password' => 'パスワード',
@@ -257,6 +257,11 @@ return [
         'username' => 'ユーザー名',
         'year' => '年',
         'detail' => '詳細',
+        'start_date' => '開始日',
+        'end_date' => '終了日',
+        'start_time' => '開始時間',
+        'end_time' => '終了時間',
+
     ],
 
 ];

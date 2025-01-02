@@ -9,24 +9,6 @@
 
 @section('content')
 <div class="container">
-@if(session('alertMessage'))
-    <div class="mt-4 alert alert-danger" role="alert">
-        {{ session('alertMessage')}}
-    </div>
-@elseif(session('successMessage'))
-    <div class="mt-4 alert alert-success" role="alert">
-        {{ session('successMessage' )}}
-    </div>
-@endif
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-        </ul>
-    </div>
-@endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -39,7 +21,7 @@
                             <div class="col-md-6">
                                 <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autocomplete="title">
 
-                                @error('')
+                                @error('title')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -69,24 +51,36 @@
                             <div class="col-md-6">
                                 <input class="form-control" type="date" id="start_date" name="start_date"value="{{ old('start_date') }}" />
                             </div>
+                            @error('start_date')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="row mb-3">
                             <label class="col-md-4 col-form-label text-md-end" for="end_date">イベント終了日</label>
                             <div class="col-md-6">
                                 <input class="form-control" type="date" id="end_date" name="end_date" value="{{ old('end_date') }}" />
                             </div>
+                            @error('end_date')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="row mb-3">
                             <label class="col-md-4 col-form-label text-md-end" for="start_time">営業開始時間</label>
                             <div class="col-md-6">
                                 <input class="form-control" type="time" id="start_time" name="start_time" value="{{ old('start_time') }}"/>
                             </div>
+                            @error('start_time')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="row mb-3">
                             <label class="col-md-4 col-form-label text-md-end" for="end_time">営業終了時間</label>
                             <div class="col-md-6">
                                 <input class="form-control" type="time" id="end_time" name="end_time" value="{{ old('end_time') }}"/>
                             </div>
+                            @error('end_time')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="row mb-3">
@@ -95,7 +89,7 @@
                             <div class="col-md-6">
                                 <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required autocomplete="address">
 
-                                @error('')
+                                @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -108,7 +102,7 @@
 
                             <div class="col-md-6">
                                 <textarea name="detail" id="detail" class="form-control"  rows="6">{{ old('detail') }}</textarea>
-                                @error('')
+                                @error('detail')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -123,6 +117,9 @@
                                 <div>
                                     <input type="file" name="image" id="image">
                                 </div>
+                                @error('image')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
@@ -142,7 +139,7 @@
 </div>
 @stop
 @section('footer')
-<p class="text-center">©︎2024 MIZUKA KAJITA</p>
+    <p class="text-center">©︎2024 MIZUKA KAJITA</p>
 @stop
 
 @section('css')

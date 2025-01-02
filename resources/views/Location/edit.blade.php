@@ -17,15 +17,7 @@
             {{ session('successMessage' )}}
         </div>
     @endif
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-        </ul>
-    </div>
-    @endif
+
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">{{ $location->title }}</div>
@@ -45,7 +37,7 @@
                             <div class="col-md-6">
                                 <input id="title" type="text" class="form-control" name="title" value="{{ old('title', $location->title) }}" required autocomplete="title">
 
-                                @error('')
+                                @error('title')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -80,24 +72,44 @@
                             <div class="col-md-6">
                                 <input class="form-control" type="date" id="start_date" name="start_date" value="{{ old('start_date',$location->start_date) }}" />
                             </div>
+                            @error('start_date"')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="row mb-3">
                             <label class="col-md-4 col-form-label text-md-end" for="end_date">イベント終了日</label>
                             <div class="col-md-6">
                                 <input class="form-control" type="date" id="end_date" name="end_date" value="{{ old('end_date',$location->end_date) }}" />
                             </div>
+                            @error('end_date"')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="row mb-3">
                             <label class="col-md-4 col-form-label text-md-end" for="start_time">営業開始時間</label>
                             <div class="col-md-6">
                                 <input class="form-control" type="time" id="start_time" name="start_time" value="{{ substr($location->start_time,0,5) }}"/>
                             </div>
+                            @error('start_time"')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="row mb-3">
                             <label class="col-md-4 col-form-label text-md-end" for="end_time">営業終了時間</label>
                             <div class="col-md-6">
                                 <input class="form-control" type="time" id="end_time" name="end_time" value="{{ substr($location->end_time,0,5) }}"/>
                             </div>
+                            @error('end_time"')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="row mb-3">
@@ -139,6 +151,11 @@
                                 <div>
                                     <input type="file" name="image" id="image">
                                 </div>
+                                @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="text-center m-4">
