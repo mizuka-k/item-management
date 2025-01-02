@@ -30,6 +30,10 @@ class LocationController extends Controller
                 'title' => 'required|max:100',
                 'address' => 'required|max:255',
                 'detail' => 'required|max:1000',
+                'start_date' => 'required',
+                'end_date' => 'required',
+                'start_time' => 'required',
+                'end_time' => 'required',
                 'image' => 'image|max:1024|required',
             ]);
 
