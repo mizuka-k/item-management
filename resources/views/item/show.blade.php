@@ -71,53 +71,10 @@
                             <button type="submit" class="btn btn-danger" onClick="return confirm('本当に削除しますか？');">削除</button>
                         </form>
                     </div>
+                    @endcan 
                 </div>
             </div>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                    </ul>
-                </div>
-            @endif
-            <!-- <div class="card-header">
-                <h2 class="card-title">メニュー登録</h2>
-            </div> -->
-            <!-- <div class="card">
-                <form method="POST" action="{{ route('menu.store') }}" enctype="multipart/form-data">
-                    @csrf
-                    <input type="hidden" name="item_id" value="{{ $item->id }}">
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="name">商品名</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="商品名" value="{{ old('name') }}">
-                        </div>
 
-                        <div class="form-group">
-                            <label for="detail">価格</label>
-                            <input type="text" class="form-control" id="price" name="price" placeholder="価格" value="{{ old('price') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="detail">商品説明</label>
-                            <textarea class="form-control" id="detail" name="detail" placeholder="商品説明">{{ old('detail') }}</textarea>
-                        </div> -->
-
-                        <!-- 画像 -->
-                        <!-- <div class="form-group">
-                            <label for="image">画像:1MBまで</label>
-                            <div>
-                                <input type="file" name="image" id="image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer text-center">
-                        <button type="submit" class="btn btn-info">メニューを登録する</button>
-                    </div>
-                </form>
-            </div>
-            @endcan -->
 @stop
 
 @section('css')
