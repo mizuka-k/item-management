@@ -90,7 +90,6 @@ class ItemController extends Controller
                 request()->file('image')->move('storage/',$name);
                 $validated['image']  = $name;
             }
-            $validated['user_id'] = Auth::user()->id;
             $item->update($validated);
             return redirect()->route('item.edit', $item)->with('successMessage', '更新しました。');
         }

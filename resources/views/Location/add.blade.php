@@ -22,9 +22,7 @@
                                 <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autocomplete="title">
 
                                 @error('title')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
@@ -90,9 +88,7 @@
                                 <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required autocomplete="address">
 
                                 @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
@@ -103,9 +99,7 @@
                             <div class="col-md-6">
                                 <textarea name="detail" id="detail" class="form-control"  rows="6">{{ old('detail') }}</textarea>
                                 @error('detail')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>

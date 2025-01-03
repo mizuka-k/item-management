@@ -72,10 +72,8 @@
                             <div class="col-md-6">
                                 <input class="form-control" type="date" id="start_date" name="start_date" value="{{ old('start_date',$location->start_date) }}" />
                             </div>
-                            @error('start_date"')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            @error('start_time')
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="row mb-3">
@@ -83,10 +81,8 @@
                             <div class="col-md-6">
                                 <input class="form-control" type="date" id="end_date" name="end_date" value="{{ old('end_date',$location->end_date) }}" />
                             </div>
-                            @error('end_date"')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            @error('end_date')
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="row mb-3">
@@ -94,10 +90,8 @@
                             <div class="col-md-6">
                                 <input class="form-control" type="time" id="start_time" name="start_time" value="{{ substr($location->start_time,0,5) }}"/>
                             </div>
-                            @error('start_time"')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            @error('start_time')
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="row mb-3">
@@ -105,10 +99,8 @@
                             <div class="col-md-6">
                                 <input class="form-control" type="time" id="end_time" name="end_time" value="{{ substr($location->end_time,0,5) }}"/>
                             </div>
-                            @error('end_time"')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            @error('end_time')
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
 
@@ -119,9 +111,7 @@
                                 <input id="address" type="text" class="form-control" name="address" value="{{ old('address', $location->address) }}" required autocomplete="address">
 
                                 @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
@@ -132,9 +122,7 @@
                             <div class="col-md-6">
                                 <textarea name="detail" id="detail" class="form-control" value=""rows="6">{{ old('detail', $location->detail) }}</textarea>
                                 @error('detail')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
@@ -152,9 +140,7 @@
                                     <input type="file" name="image" id="image">
                                 </div>
                                 @error('image')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
