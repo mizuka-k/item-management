@@ -45,7 +45,7 @@ class ItemController extends Controller
             ]);
 
             $file = $request->file('file');
-            Storage::disk('s3')->putFile('kitchencarhub/item/', $file);
+            Storage::disk('s3')->putFile('item', $file);
 
             // キッチンカー登録処理
             $item = Item::create([
