@@ -44,22 +44,28 @@ class ItemController extends Controller
                 'image' => 'image|max:1024',
             ]);
 
-            $imagePath = null;
             if ($request->hasFile('image'))
             {
-                // ファイルをS3にアップロード
-                $imagePath = $request->file('image')->store('item_images', 's3');
+                // S3へファイルをアップロード
+                $result = Storage::disk('s3')->put('/', $request->file('image'));
+
+                // アップロードの成功判定
+                if ($result) {
+                    return 'アップロード成功';
+                }else {
+                    return 'アップロード失敗';
+                }
         }
 
             // キッチンカー登録処理
-            $item = Item::create([
-                'name' => $request->name,
-                'detail' => $request->detail,
-                'image' => $request->image,
-                'user_id' => Auth::user()->id,
-            ]);
+            // $item = Item::create([
+            //     'name' => $request->name,
+            //     'detail' => $request->detail,
+            //     'image' => $request->image,
+            //     'user_id' => Auth::user()->id,
+            // ]);
 
-            return redirect('/items/index')->with('successMessage', '保存しました。');
+            // return redirect('/items/index')->with('successMessage', '保存しました。');
         }
 
         return view('item.add');
