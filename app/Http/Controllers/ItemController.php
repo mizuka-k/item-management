@@ -49,8 +49,6 @@ class ItemController extends Controller
             {
                 // ファイルをS3にアップロード
                 $imagePath = $request->file('image')->store('item_images', 's3');
-                // アップロードしたファイルのアクセスを制限する（デフォルトでprivate）
-                Storage::disk('s3')->setVisibility($imagePath, 'private');
         }
 
             // キッチンカー登録処理
