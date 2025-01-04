@@ -44,11 +44,16 @@ class ItemController extends Controller
                 'image' => 'image|max:1024',
             ]);
             $item = new Item;
-            
-            $file = $request->file('image');
-            Storage::disk('s3')->putFile('item', $file);
+
+            // s3アップロード開始
+            $image = $request->file('image');
+            // バケットの`myprefix`フォルダへアップロード
+            $path = Storage::disk('s3')->putFile('item', $image, 'public');
+            // アップロードした画像のフルパスを取得
+            $item->image = Storage::disk('s3')->url($path);
 
             // キッチンカー登録処理
+            $validated['user_id'] = $request->user()->id;
             $item->update($validated);
 
             return redirect('/items/index')->with('successMessage', '保存しました。');
