@@ -43,17 +43,13 @@ class ItemController extends Controller
                 'detail' => 'required|max:1000',
                 'image' => 'image|max:1024',
             ]);
-
+            $item = new Item;
+            
             $file = $request->file('image');
             Storage::disk('s3')->putFile('item', $file);
 
             // キッチンカー登録処理
-            $item = Item::create([
-                'name' => $request->name,
-                'detail' => $request->detail,
-                'image' => $request->image,
-                'user_id' => Auth::user()->id,
-            ]);
+            $item->update($validated);
 
             return redirect('/items/index')->with('successMessage', '保存しました。');
         }
