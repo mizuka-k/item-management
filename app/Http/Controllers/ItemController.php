@@ -46,15 +46,13 @@ class ItemController extends Controller
 
             if ($request->hasFile('image'))
             {
-                // S3へファイルをアップロード
-                $result = Storage::disk('s3')->put('/', $request->file('image'));
-
-                // アップロードの成功判定
-                if ($result) {
-                    return 'アップロード成功';
-                }else {
-                    return 'アップロード失敗';
-                }
+            // s3アップロード開始
+            $image = $request->file('image');
+            // バケットの`myprefix`フォルダへアップロード
+            $path = Storage::disk('s3')->putFile('item', $image, 'public');
+            // アップロードした画像のフルパスを取得
+            $validated['image'] = Storage::disk('s3')->url($path);
+            dd($validated['image']);
         }
 
             // キッチンカー登録処理
