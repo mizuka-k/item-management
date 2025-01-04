@@ -37,6 +37,7 @@ class ItemController extends Controller
     {
         // POSTリクエストのとき
         if ($request->isMethod('post')) {
+            $item = new Item;
             // バリデーション
             $validated = $request->validate([
                 'name' => 'required|max:100',
@@ -46,24 +47,17 @@ class ItemController extends Controller
 
             if ($request->hasFile('image'))
             {
-            // s3アップロード開始
-            $image = $request->file('image');
-            // バケットの`myprefix`フォルダへアップロード
-            $path = Storage::disk('s3')->putFile('item', $image, 'public');
-            // アップロードした画像のフルパスを取得
-            $validated['image'] = Storage::disk('s3')->url($path);
-            dd($validated['image']);
-        }
 
-            // キッチンカー登録処理
-            // $item = Item::create([
-            //     'name' => $request->name,
-            //     'detail' => $request->detail,
-            //     'image' => $request->image,
-            //     'user_id' => Auth::user()->id,
-            // ]);
+                //s3アップロード開始
+                $image = $request->file('image');
+                // バケットの`item`フォルダへアップロード
+                $path = Storage::disk('s3')->putFile('item', $image, 'public');
+                dd($path);
+                // アップロードした画像のフルパスを取得
+                $item->image = Storage::disk('s3')->url($path);
+            }
 
-            // return redirect('/items/index')->with('successMessage', '保存しました。');
+            return redirect('/items/index')->with('successMessage', '保存しました。');
         }
 
         return view('item.add');
