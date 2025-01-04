@@ -44,7 +44,7 @@ class ItemController extends Controller
                 'image' => 'image|max:1024',
             ]);
 
-            $file = $request->file('file');
+            $file = $request->file('image');
             Storage::disk('s3')->putFile('item', $file);
 
             // キッチンカー登録処理
