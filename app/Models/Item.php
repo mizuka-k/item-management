@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Item extends Model
 {
@@ -16,6 +17,16 @@ class Item extends Model
         return $this->hasMany(Menu::class);
     }
 
+     // s3 署名付きURLを取得するメソッド
+    public function getFileUrl($filePath)
+    {
+        if ($filePath) {
+            return Storage::disk('s3')->temporaryUrl(
+                $filePath, now()->addMinutes(15)
+            );
+        }
+        return null;
+    }
     // public function choice() {
     //     return $this->hasMany(Choice::class);
     // }
