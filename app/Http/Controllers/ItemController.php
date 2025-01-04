@@ -47,13 +47,13 @@ class ItemController extends Controller
 
             // s3アップロード開始
             $image = $request->file('image');
-            // バケットの`myprefix`フォルダへアップロード
+            // バケットの`item`フォルダへアップロード
             $path = Storage::disk('s3')->put('/item', $image, 'public');
-            // アップロードした画像のフルパスを取得
-            $item->image = $path;
 
             // キッチンカー登録処理
             $validated['user_id'] = $request->user()->id;
+            $validated['image'] = $path;
+            dd($validated);
             $item->update($validated);
 
             return redirect('/items/index')->with('successMessage', '保存しました。');
