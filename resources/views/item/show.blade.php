@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col p-4">
                                 @if($item->image)
-                                <img src="{{ $item->image }}" alt="kitchen-car-image" class="rounded mx-auto d-block" style="height:300px">
+                                <img src="{{ Storage::disk('s3')->url($item->image) }}" alt="kitchen-car-image" class="rounded mx-auto d-block" style="height:300px">
                                 <!-- <img src="{{ asset('storage/'.($item->image??'img/kitchen_car_default.jpg')) }}" class="rounded mx-auto d-block" style="height:300px" alt="車両画像"> -->
                                 @endif
                             </div>
