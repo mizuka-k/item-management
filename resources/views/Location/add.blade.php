@@ -105,7 +105,7 @@
                         </div>
 
                         <!-- 画像 -->
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="form-group">
                                 <label for="image">画像(1MBまで)</label>
                                 <div>
@@ -115,7 +115,7 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                        </div>
+                        </div> -->
 
 
                             <div class="d-flex justify-content-center mt-4 mb2">

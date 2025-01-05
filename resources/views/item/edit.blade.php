@@ -41,7 +41,7 @@
                         @enderror
 
                     <!-- 画像 -->
-                        <div class="form-group text-center">
+                        <!-- <div class="form-group text-center">
                             @if($item->image)
                             <img src="{{ asset('storage/'.$item->image) }}" alt="キッチンカーの画像" class="mx-auto m-2" style="height:300px">
                             @endif
@@ -54,7 +54,7 @@
                             @error('image')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
-                        </div>
+                        </div> -->
                     </div>
                     <div class="text-center m-4">
                         <div class="text-center mb-2">

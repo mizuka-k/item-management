@@ -128,7 +128,7 @@
                         </div>
 
                         <!-- 画像 -->
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             @if($location->image)
                             <div class="text-center">
                                 <img src="{{ asset('storage/'.$location->image) }}" alt="イベントイメージ" class="mx-auto m-2" style="height:300px">
@@ -143,7 +143,7 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                        </div>
+                        </div> -->
                         <div class="text-center m-4">
                             <div class="m-2">
                                 <button type="submit" class="btn btn-info">編集する</button>

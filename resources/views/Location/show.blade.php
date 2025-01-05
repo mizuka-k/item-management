@@ -16,11 +16,11 @@
                 <div class="table-responsive" style="height:auto">
                     <table class="table align-middle">
                         <tbody>
-                            <div class="m-4">
+                            <!-- <div class="m-4">
                                 @if($location->image)
                                 <img src="{{ asset('storage/'.($location->image??'location_default.jpg')) }}" class="rounded mx-auto d-block" style="height:300px" alt="イベントイメージ">
                                 @endif
-                            </div>
+                            </div> -->
                             <tr class="align-middle">
                                 <th class="text-secondary" style="width:30%">ID</th>
                                 <td style="width:50%">
