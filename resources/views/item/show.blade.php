@@ -25,14 +25,13 @@
                 </div>
                 <div class="table-responsive" style="height:auto">
                     <table class="table align-middle">
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col p-4">
-                                @if($item->image)
-                                <img src="{{ Storage::disk('s3')->url($item->image) }}" alt="kitchen-car-image" class="rounded mx-auto d-block" style="height:300px">
+                                @if($item->image) -->
                                 <!-- <img src="{{ asset('storage/'.($item->image??'img/kitchen_car_default.jpg')) }}" class="rounded mx-auto d-block" style="height:300px" alt="車両画像"> -->
-                                @endif
+                                <!-- @endif
                             </div>
-                        </div>
+                        </div> -->
                         <tbody>
                             <tr class="align-middle">
                                 <th class="text-secondary" style="width:30%">ID</th>
