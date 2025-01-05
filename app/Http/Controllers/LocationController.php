@@ -34,7 +34,7 @@ class LocationController extends Controller
                 'end_date' => 'required',
                 'start_time' => 'required',
                 'end_time' => 'required',
-                'image' => 'image|max:1024|required',
+                'image' => 'image|max:1024',
             ]);
 
             // イベント登録処理
