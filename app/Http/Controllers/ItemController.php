@@ -37,13 +37,13 @@ class ItemController extends Controller
     {
         // POSTリクエストのとき
         if ($request->isMethod('post')) {
+            $item = new Item;
             // バリデーション
             $validated = $request->validate([
                 'name' => 'required|max:100',
                 'detail' => 'required|max:1000',
                 'image' => 'image|max:1024',
             ]);
-            $item = new Item;
 
             // s3アップロード開始
             // $image = $request->file('image');
@@ -51,8 +51,9 @@ class ItemController extends Controller
             $image = $request->file('image')->store('item', 's3');
             $path = Storage::disk('s3')->url($image);
             // キッチンカー登録処理
-            $validated['user_id'] = $request->user()->id;
-            $item->update($validated);
+            $item->user_id = $request->user()->id;
+            dd($item);
+            $item->update();
 
             return redirect('/items/index')->with('successMessage', '保存しました。');
         }
