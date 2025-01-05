@@ -37,24 +37,24 @@ class ItemController extends Controller
     {
         // POSTリクエストのとき
         if ($request->isMethod('post')) {
-            $item = new Item;
             // バリデーション
             $validated = $request->validate([
                 'name' => 'required|max:100',
                 'detail' => 'required|max:1000',
                 'image' => 'image|max:1024',
             ]);
+            $item = new Item;
+            $item->user_id = Auth::user()->id;
+            $item->name = $validated['name'];
+            $item->detail = $validated['detail'];
 
-            // s3アップロード開始
-            // $image = $request->file('image');
-            // バケットの`item`フォルダへアップロード
-            $image = $request->file('image')->store('item', 's3');
-            $path = Storage::disk('s3')->url($image);
-            // キッチンカー登録処理
-            $item->user_id = $request->user()->id;
-            dd($item);
-            $item->update();
-
+            if(request('image')) {
+                $original = $request->file('image')->getClientOriginalName();
+                $name = date('Ymd_His').'_'.$original;
+                request()->file('image')->move('storage/',$name);
+                $item->image =  $name;
+            }
+            $item->save();
             return redirect('/items/index')->with('successMessage', '保存しました。');
         }
 
