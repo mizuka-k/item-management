@@ -50,7 +50,6 @@ class ItemController extends Controller
  
             // バケットの`item`フォルダへアップロード
             $path = Storage::disk('s3')->put('item', $image, );
-            dd($path);
             // キッチンカー登録処理
             $validated['user_id'] = $request->user()->id;
             $validated['image'] = $path;
